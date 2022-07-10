@@ -1,0 +1,46 @@
+{
+  "name": "bacloud.js",
+  "version": "0.0.0",
+  "description": "Alternative client to consume bacloud API",
+  "author": "aryan02420",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/bacloud.js",
+  "types": "lib/bacloud.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
+    "build": "rollup -c rollup.config.js",
+    "dev": "npm run build -- --watch",
+    "lint": "tsc && prettier --check . && eslint src",
+    "fix": "prettier --write . && eslint --fix src",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.19.0",
+    "prettier": "^2.7.1",
+    "rollup": "^2.76.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "husky": "^8.0.0"
+  },
+  "keywords": [
+    "bacloud",
+    "ballistica",
+    "bombsquad"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bombsquad02420/bacloud.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bombsquad02420/bacloud.js/issues"
+  },
+  "homepage": "https://github.com/bombsquad02420/bacloud.js#readme"
+}
