@@ -1,0 +1,25 @@
+name: Autofix
+
+on:
+  workflow_dispatch:
+
+jobs:
+  autofix:
+    name: autofix
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: install dependencies
+        run: npm ci
+      - name: autofix errors
+        run: npm run fix
+      - name: commit changes
+        run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -am '🎨 style: autofix problems'
+          git push

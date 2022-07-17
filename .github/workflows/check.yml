@@ -1,0 +1,49 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check_tsc:
+    name: check tsc
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: install dependencies
+        run: npm ci
+      - name: check tsc
+        run: npm run lint:tsc
+
+  check_prettier:
+    name: check prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: install dependencies
+        run: npm ci
+      - name: check prettier
+        run: npm run lint:prettier
+
+  check_eslint:
+    name: check eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: install dependencies
+        run: npm ci
+      - name: check eslint
+        run: npm run lint:eslint

@@ -14,9 +14,15 @@
     "test": "echo \"No test specified\" && exit 0",
     "build": "rollup -c rollup.config.js",
     "dev": "npm run build -- --watch",
-    "lint": "tsc && prettier --check . && eslint src",
-    "fix": "prettier --write . && eslint --fix src",
-    "prepare": "husky install"
+    "lint": "npm run lint:tsc && npm run lint:prettier && npm run lint:eslint",
+    "lint:tsc": "tsc --noEmit",
+    "lint:prettier": "prettier --check .",
+    "lint:eslint": "eslint src",
+    "fix": "npm run fix:prettier && npm run fix:eslint",
+    "fix:prettier": "prettier --write .",
+    "fix:eslint": "eslint --fix src",
+    "prepare": "husky install",
+    "precommit": "npm run lint && npm run test && npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.3",
