@@ -7,6 +7,8 @@ jobs:
   autofix:
     name: autofix
     runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
