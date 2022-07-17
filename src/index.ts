@@ -1,3 +1,3 @@
-export default 'Hello World!'
+import { sendCommand } from './handler'
 
-export * from './schema'
+await sendCommand('user', { a: ['status'] })

@@ -17,18 +17,26 @@
     "lint": "npm run lint:tsc && npm run lint:prettier && npm run lint:eslint",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --check .",
-    "lint:eslint": "eslint src",
+    "lint:eslint": "eslint src *.js",
     "fix": "npm run fix:prettier && npm run fix:eslint",
     "fix:prettier": "prettier --write .",
-    "fix:eslint": "eslint --fix src",
+    "fix:eslint": "eslint --fix src *.js",
     "prepare": "husky install",
     "precommit": "npm run lint && npm run test && npm run build"
   },
+  "dependencies": {
+    "isomorphic-unfetch": "^3.1.0",
+    "zod": "^3.17.3"
+  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.3",
+    "@types/node": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.19.0",
+    "eslint-import-resolver-typescript": "^3.2.7",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^8.0.0",
     "prettier": "^2.7.1",
     "rollup": "^2.76.0",
@@ -48,8 +56,5 @@
   "bugs": {
     "url": "https://github.com/bombsquad02420/bacloud.js/issues"
   },
-  "homepage": "https://github.com/bombsquad02420/bacloud.js#readme",
-  "dependencies": {
-    "zod": "^3.17.3"
-  }
+  "homepage": "https://github.com/bombsquad02420/bacloud.js#readme"
 }

@@ -1,5 +1,6 @@
 import pluginTypescript from '@rollup/plugin-typescript'
 import pluginDts from 'rollup-plugin-dts'
+
 import { main, types } from './package.json'
 
 /**

@@ -20,7 +20,7 @@ export const RequestSchema = z.object({
    *
    * the parameters used by the command
    */
-  p: z.record(z.any()),
+  p: z.record(z.unknown()),
   /**
    * tzoffset
    *
@@ -118,7 +118,7 @@ export const ResponseSchema = z.object({
    * If present, this command is run with these args at the end
    * of response processing.
    */
-  end_command: z.tuple([z.string(), z.record(z.any())]).nullable(),
+  end_command: z.tuple([z.string(), z.record(z.unknown())]).nullable(),
 })
 
 export type RequestSchemaType = z.infer<typeof RequestSchema>
