@@ -72,23 +72,23 @@ export const ResponseSchema = z.object({
    * If present, client should upload the requested files (arg1)
    * individually to a server command (arg2) with provided args (arg3).
    */
-  uploads: z.any(),
+  uploads: z.tuple([z.string().array(), z.string(), z.record(z.string())]).nullable(),
   /**
    * If present, a list of pathnames that should be base64
    * gzipped and uploaded to an 'uploads_inline' dict in end_command args.
    * This should be limited to relatively small files.
    */
-  uploads_inline: z.any(),
+  uploads_inline: z.string().array().nullable(),
   /**
    * If present, file paths that should be deleted on the client.
    */
-  deletes: z.any(),
+  deletes: z.string().array().nullable(),
   /**
    * If present, pathnames mapped to base64 gzipped data to
    * be written to the client. This should only be used for relatively
    * small files as they are all included inline as part of the response.
    */
-  downloads_inline: z.any(),
+  downloads_inline: z.record(z.string()).nullable(),
   /**
    * If present, all empty dirs under this one should be
    * removed.
@@ -104,7 +104,7 @@ export const ResponseSchema = z.object({
    * before reading and the second is whether it should be read as a
    * password (without echoing to the terminal).
    */
-  input_prompt: z.any(),
+  input_prompt: z.tuple([z.string(), z.boolean()]).nullable(),
   /**
    * If present, a message that should be printed after all other
    * response processing is done.
@@ -118,7 +118,7 @@ export const ResponseSchema = z.object({
    * If present, this command is run with these args at the end
    * of response processing.
    */
-  end_command: z.any(),
+  end_command: z.tuple([z.string(), z.record(z.any())]).nullable(),
 })
 
 export type RequestSchemaType = z.infer<typeof RequestSchema>
